@@ -1,0 +1,17 @@
+{% extends "soccer\\base.html" %}
+
+{% block content %}
+<div class="article">
+    <div class="championship-container">
+        <h1>Liste des Championnats</h1>
+        <ul>
+            {% for championship in championships %}
+            <li>
+                <a href="{% url 'ranking_list' championship.id %}">{{ championship.name }}</a>
+            </li>
+            <span>Saison : {{ championship.season }}</span>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endblock %}

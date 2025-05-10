@@ -1,0 +1,39 @@
+{% extends "soccer\\base.html" %}
+{% block content %}
+<h1>{{ championship.name }} ({{ championship.season }})</h1>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Position</th>
+            <th>Équipe</th>
+            <th>Joués</th>
+            <th>Victoires</th>
+            <th>Nuls</th>
+            <th>Défaites</th>
+            <th>Points</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for team in rankings %}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>
+                {% if team.logo %}
+                    <img src="{{ team.logo.url }}" alt="{{ team.name }}" width="30" class="me-2">
+                {% endif %}
+                {{ team.name }}
+            </td>
+            <td>{{ team.ranking.played }}</td>
+            <td>{{ team.ranking.wins }}</td>
+            <td>{{ team.ranking.draws }}</td>
+            <td>{{ team.ranking.losses }}</td>
+            <td>{{ team.ranking.points }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<a href="{% url 'championship_list' %}" class="btn btn-secondary">Retour</a>
+{% endblock %}
+
+
+

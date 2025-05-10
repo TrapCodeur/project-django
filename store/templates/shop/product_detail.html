@@ -1,0 +1,19 @@
+{% extends "soccer\\base.html" %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css\\product_detail_e.css' %}">
+{% block content %}
+
+<div class="product-container">
+    <div class="product-image">
+        <img src="{{ product.image.url }}" alt="{{ product.name }}">
+    </div>
+    <div class="product-detail">
+        <h1>{{ product.name }}</h1>
+        <p>{{ product.description }}</p>
+        <p><strong>Prix :</strong>{{ product.price }} €</p>
+        <a href="{% url 'cart_add' product.id %}" class="btn-success">Ajouter au panier</a>
+        <a href="{% url 'product_list' %}" class="btn btn-warning">Retour a la boutique</a>
+    </div>
+</div>
+{% endblock %}
+

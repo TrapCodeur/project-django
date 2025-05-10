@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css\\confirmation.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <title>Message envoyer</title>
+</head>
+<body>
+    <div class="confirmation-container">
+        <div class="confirmation-box">
+            <i class="fas fa-check-circle"></i>
+            <h2>MERCI !</h2>
+            <p>Votre message a bien été envoyé. Nous vous répondrons dès que posible.</p>
+            <a href="{% url 'contact' %}" class="btn">Retour a la page de contact</a>
+        </div>
+    </div>
+</body>
+</html>

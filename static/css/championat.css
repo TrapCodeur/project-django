@@ -1,0 +1,10 @@
+table {
+    background-color: #f9f9f9;
+}
+th {
+    background-color: #007bff;
+    color: white;
+}
+td img {
+    border-radius: 50%;
+}

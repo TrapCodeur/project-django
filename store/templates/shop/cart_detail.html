@@ -1,0 +1,24 @@
+{% extends "soccer\\base.html" %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css\\cart_detail_shop.css' %}">
+{% block content %}
+
+<div class="cart-container">
+    <h1>Votre Panier</h1>
+    <ul class="cart-items">
+        {% for item in cart.items.all %}
+            <li>
+                <h2>{{ item.product.name }}</h2>
+                <p>Quantité : {{ item.quantity }}</p>
+                <p>Total : {{ item.quantity|floatformat:2 }} €</p>
+                <a href="{% url 'cart_remove' item.id %}">Supprimer le panier</a>
+                <a href="{% url 'product_list' %}">Retour à la boutique</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <p class="cart-total">Total Panier : {{ cart.total_price|floatformat:2 }} €</p>
+{% if cart.total_price %}
+    <a href="#" class="return-shop">Procéder au paiement</a>
+{% endif %}
+</div>
+{% endblock %}

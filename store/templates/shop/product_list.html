@@ -1,0 +1,33 @@
+{% extends "soccer\\base.html" %}
+
+{% block content %}
+
+
+
+
+<h1 style="text-align: center; font-weight: bold;">Nos produits de hautes qualités</h1>
+<ul>
+    {% for product in products %}
+    <div class="row">
+        <div class="col-md-3">
+            <div class="card">
+                <img src="{{ product.image.url }}" alt="{{ product.name }}" class="card-ing-top">
+                <div class="card-body">
+                    <div class="card-title">
+                        <div class="card-title">{{ product.name }}</div>
+                        <div class="card-text" style="font-weight: bold;">Prix : {{ product.price }} €</div>
+                        <li>
+                            <a href="{% url 'cart_add' product.id %}" class="btn btn-success">Ajouter au panier</a>
+                            <a href="{% url 'product_detail' product.id %}" class="btn btn-warning">Voir Détails</a>
+                        </li>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>      
+    {% endfor %}
+</ul>
+{% endblock %}
+
+

@@ -1,0 +1,28 @@
+{% extends "soccer\\base.html" %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css\\contact.css' %}">
+
+
+<header>
+  <div class="contact-form-container">
+      <h2>Se Connecter</h2>
+      <hr>
+      <form method="POST" class="contact-form">
+      {% csrf_token %}
+          <div class="form-group">
+              <label for="name">Nom d'utilisateur</label>
+              <input type="text" id="username" name="username" placeholder="votre nom d'utilisateur" required>
+          </div>
+          <div class="form-group">
+              <label for="email">password</label>
+              <input type="password" id="password" name="password" placeholder="votre mot de passe" required>
+          </div>
+          <p>Agree to terms and conditions</p>
+          <button type="submit" class="btn">Se Connecter</button>
+
+      </form>
+  </div>
+</header>
+
+{% endblock %}
